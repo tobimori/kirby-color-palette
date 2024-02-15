@@ -2,7 +2,7 @@
 > I do not support this plugin actively, it's only for legacy projects. Please use the new Core Color field.
 > The README below might be outdated.
 
-`composer require tobimori/kirby-color-palette`
+`composer require tobimori/kirby-color-palette:dev-master`
 
 # Kirby Color-Palette
 
