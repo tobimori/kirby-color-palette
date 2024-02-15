@@ -1,8 +1,7 @@
-import ColorPalette from './components/field/ColorPalette.vue'
-import './assets/svg/icons.js'
+import ColorPalette from "./components/field/ColorPalette.vue"
 
-panel.plugin('sylvainjule/color-palette', {
-    fields: {
-        'color-palette': ColorPalette,
-    }
-});
+panel.plugin("tobimori/color-palette", {
+  fields: {
+    "color-palette": ColorPalette
+  }
+})

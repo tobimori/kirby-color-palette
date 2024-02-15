@@ -1,3 +1,9 @@
+> This is a quick-and-dirty fork of Sylvain's color palette plugin. It does not feature the image color extraction functionality, but it works with Kirby 4.
+> I do not support this plugin actively, it's only for legacy projects. Please use the new Core Color field.
+> The README below might be outdated.
+
+`composer require tobimori/kirby-color-palette`
+
 # Kirby Color-Palette
 
 A color palette displayed in the panel, helping you pick predefined colors / palettes.
@@ -22,9 +28,9 @@ A color palette displayed in the panel, helping you pick predefined colors / pal
 
 ## 1. Installation
 
-Download and copy this repository to ```/site/plugins/color-palette```
+Download and copy this repository to `/site/plugins/color-palette`
 
-Alternatively, you can install it with composer: ```composer require sylvainjule/color-palette```
+Alternatively, you can install it with composer: `composer require sylvainjule/color-palette`
 
 <br/>
 
@@ -37,16 +43,16 @@ palette:
   label: Pick a color
   type: color-palette
   options:
-    - '#135fdc'
-    - '#f6917e'
-    - '#6a96e4'
+    - "#135fdc"
+    - "#f6917e"
+    - "#6a96e4"
     - ...
 ```
 
 Note that you can fill it with any CSS-valid color:
 
 ```yaml
-- '#ffffff'
+- "#ffffff"
 - rgba(255, 255, 255, 0.5)
 - rgb(255, 255, 255)
 - white
@@ -64,9 +70,9 @@ The plugin accepts both an array or a structured object.
 palette:
   type: color-palette
   options:
-    - '#135fdc'
-    - '#f6917e'
-    - '#6a96e4'
+    - "#135fdc"
+    - "#f6917e"
+    - "#6a96e4"
     - ...
 ```
 
@@ -102,7 +108,6 @@ You can add tooltips to structured colors: any color with the `tooltip` key will
 
 ![screenshot-tooltip](https://user-images.githubusercontent.com/14079751/70157500-fbf12d00-16b5-11ea-8572-4877dbcb32e5.jpg)
 
-
 ##### • Dynamic options
 
 You can set dynamic options / query your options from a different field. Just make sure the `value` returns a CSS-valid color.
@@ -116,17 +121,13 @@ palette:
   query:
     fetch: page.mycolors.toStructure
     value: "{{ structureItem.color }}"
-
-...
-
+---
 mycolors:
   type: structure
   fields:
     color:
       type: text
 ```
-
-
 
 #### 3.2. `display`
 
@@ -260,8 +261,8 @@ The field will need to be decoded with the `yaml` method. For example, if your o
 ```yaml
 options:
   blue:
-    background: '#135fdc'
-    border: '#0438c7'
+    background: "#135fdc"
+    border: "#0438c7"
 ```
 
 Here's how to get the selected color:

@@ -1,19 +1,16 @@
 {
-    "name": "sylvainjule/color-palette",
-    "description": "A color palette to pick colors from for Kirby",
-    "type": "kirby-plugin",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Sylvain Julé",
-            "email": "contact@sylvain-jule.fr"
-        }
-    ],
-    "require": {
-        "getkirby/composer-installer": "^1.1"
-    },
-    "extra": {
-        "installer-name": "color-palette"
-    },
-    "minimum-stability": "beta"
+  "name": "tobimori/kirby-color-palette",
+  "description": "A downstripped fork of Sylvain Julé's color palette plugin with support for Kirby 4+",
+  "type": "kirby-plugin",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Sylvain Julé",
+      "email": "contact@sylvain-jule.fr"
+    }
+  ],
+  "require": {
+    "getkirby/composer-installer": "^1.1"
+  },
+  "minimum-stability": "beta"
 }

@@ -1,18 +1,64 @@
 <?php
 
-if (!class_exists('SylvainJule\ColorPalette')) {
-	require_once __DIR__ . '/lib/color-palette.php';
-}
+use Kirby\Cms\App;
+use Kirby\Data\Yaml;
 
-Kirby::plugin('sylvainjule/color-palette', array(
-	'options' => array(
-		'cache' => true,
-	),
-	'fields' => require_once __DIR__ . '/lib/fields.php',
-	'api'    => require_once __DIR__ . '/lib/api.php',
-    'translations' => array(
-        'en' => require_once __DIR__ . '/lib/languages/en.php',
-        'de' => require_once __DIR__ . '/lib/languages/de.php',
-        'fr' => require_once __DIR__ . '/lib/languages/fr.php',
-    ),
-));
+App::plugin('tobimori/color-palette', [
+    'fields' => [
+        'color-palette' => [
+            'extends'  => 'radio',
+            'props'    => [
+                'options' => function ($options = []) {
+                    return $options;
+                },
+                'display' => function ($display = 'single') {
+                    return $display;
+                },
+                'size' => function ($size = 'medium') {
+                    return $size;
+                },
+                'unselect' => function ($unselect = false) {
+                    return $unselect;
+                },
+                'default' => function ($default = false) {
+                    return $default;
+                },
+                'limit' => function ($limit = 10) {
+                    return $limit;
+                },
+                'value' => function ($value = null) {
+                    $yaml = Yaml::decode($value);
+                    return count($yaml) ? $yaml : $value;
+                },
+            ],
+            'computed' => [
+                'uri' => function () {
+                    return $this->model()->uri();
+                },
+                'parent' => function () {
+                    return $this->model()->apiUrl(true);
+                },
+                'options' => function () {
+                    $options = $this->options;
+
+                    if ($options == 'query') {
+                        return $this->getOptions();
+                    }
+
+                    return $options;
+                },
+                'default' => function () {
+                    return $this->default;
+                },
+                'value' => function () {
+                    return $this->value;
+                }
+            ],
+        ],
+    ],
+    'translations' => [
+        'en' => require_once __DIR__ . '/languages/en.php',
+        'de' => require_once __DIR__ . '/languages/de.php',
+        'fr' => require_once __DIR__ . '/languages/fr.php',
+    ],
+]);
