@@ -27,6 +27,9 @@ App::plugin('tobimori/color-palette', [
                     return $limit;
                 },
                 'value' => function ($value = null) {
+                    if ($value === false) {
+                        $value = null;
+                    };
                     $yaml = Yaml::decode($value);
                     return count($yaml) ? $yaml : $value;
                 },
